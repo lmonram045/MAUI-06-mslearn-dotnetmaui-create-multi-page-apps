@@ -11,13 +11,16 @@
             <Image Source="moon.png" />
         </Grid>
     </Shell.FlyoutHeader>
-    
+   
     <!-- Este es un ítem de tipo Flyout en Shell que mostrará un menú desplegable -->
     <FlyoutItem Title="Moon Phase" Icon="moon.png">
         <!-- ShellContent define el contenido de la pantalla cuando se hace clic en este ítem del Flyout -->
         <!-- Usamos DataTemplate para definir la apariencia del contenido. En este caso, es la página MoonPhasePage -->
         <ShellContent
             ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+        <!-- Anidamos para mostrar un submenú -->
+        <ShellContent 
+            ContentTemplate="{DataTemplate local:SunrisePage}"/>
     </FlyoutItem>
     
     <!-- Este es un ítem de tipo Flyout en Shell que mostrará un menú desplegable -->
@@ -36,5 +39,18 @@
             ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
     
+    <!-- No se puede mezclar TabBar y Flyout, hay que elegir una, si no, no se mostrará correctamente -->
+    <!--
+    <TabBar>
+        <Tab Title="Moon Phase"
+             Icon="moon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MoonPhasePage}" />
+        </Tab>
+        <Tab Title="Sunrise"
+             Icon="sun.png">
+            <ShellContent ContentTemplate="{DataTemplate local:SunrisePage}" />
+        </Tab>
+    </TabBar>
+    -->
 
 </Shell>
