@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Aqui se inicia la etiqueta Shell, se define la clase "Astronomy.AppShell" y se especifican los espacios de nombres XML que se utilizarán. También se establece el icono del menú desplegable (Flyout) -->
+<!-- Se inicia la etiqueta Shell, se define la clase "Astronomy.AppShell" y se especifican los espacios de nombres XML que se utilizarán. También se establece el icono del menú desplegable (Flyout) -->
 <Shell
     x:Class="Astronomy.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -7,26 +7,29 @@
     xmlns:local="clr-namespace:Astronomy.Pages"
     FlyoutIcon="moon.png">
 
-    <!-- En Shell.FlyoutHeader se define la cabecera del menú desplegable (Flyout). En este caso, es un Grid que contiene una imagen -->
+    <!-- En Shell.FlyoutHeader se define el encabezado del menú desplegable (Flyout). Aquí, es un Grid que contiene una imagen -->
     <Shell.FlyoutHeader>
-        <!-- El Grid tiene una altura de 100 y un fondo color azul oscuro "DarkSlateBlue" -->
+        <!-- El Grid tiene una altura de 100 y un fondo de color azul oscuro "DarkSlateBlue" -->
         <Grid HeightRequest="100" BackgroundColor="DarkSlateBlue">
-            <!-- En el layout Grid, se establece una Imagen cuya fuente es "moon.png" -->
+            <!-- Dentro del Grid, se establece una Imagen cuya fuente es "moon.png" -->
             <Image Source="moon.png"/>
         </Grid>
     </Shell.FlyoutHeader>
 
-    <!-- Aquí comienza la definición del TabBar, que agrega botones de navegación en la parte inferior de la aplicación -->
-    <TabBar>
-        <!-- Primer tab "Moon Phase", con el icono "moon.png". Cuando se pulsa este tab, se muestra el contenido definido dentro de su etiqueta ShellContent -->
-        <Tab Title="Moon Phase" Icon="moon.png">
-            <!-- La etiqueta ShellContent establece la plantilla de contenido utilizando DataTemplates. En este caso, se referencia a la página "MoonPhasePage" que se encuentra en el namespace local -->
-            <ShellContent ContentTemplate="{DataTemplate local:MoonPhasePage}" />
-        </Tab>
-        <!-- Segundo tab "Sunrise", con el icono "sun.png". Similar al primer tab, este también define su contenido con una etiqueta ShellContent -->
-        <Tab Title="Sunrise" Icon="sun.png">
-            <!-- La plantilla de contenido es la página "SunrisePage" -->
-            <ShellContent ContentTemplate="{DataTemplate local:SunrisePage}"/>
-        </Tab>
-    </TabBar>
+    <!-- Aquí se define un elemento del menú desplegable (FlyoutItem) con el título "Astronomy" y un icono "moon.png". Este FlyoutItem tiene dos contenido (ShellContent): "Moon Phase" y "Sunrise" -->
+    <!-- En esta página se mostraran 2 pestañas para elegir entre "Moon Phase" y "Sunrise" -->
+    <FlyoutItem Title="Astronomy" Icon="moon.png">
+        <!-- Definición de la página "Moon Phase" -->
+        <ShellContent Title="Moon Phase" Icon="moon.png" ContentTemplate="{DataTemplate local:MoonPhasePage}" />
+
+        <!-- Definición de la página "Sunrise" -->
+        <ShellContent Title="Sunrise" Icon="sun.png" ContentTemplate="{DataTemplate local:SunrisePage}" /> 
+    </FlyoutItem>
+
+    <!-- Aquí se define otro elemento del menú desplegable (FlyoutItem) con el título "About" y un icono "question.png". Este FlyoutItem lleva a la página "About" -->
+    <FlyoutItem Title="About" Icon="question.png">
+        <!-- Definición de la página "About" -->
+        <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+
 </Shell>
