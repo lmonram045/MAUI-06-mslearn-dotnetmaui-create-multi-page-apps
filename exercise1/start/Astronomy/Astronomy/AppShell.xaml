@@ -3,9 +3,38 @@
     x:Class="Astronomy.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Astronomy.Pages">
-
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+    xmlns:local="clr-namespace:Astronomy.Pages"
+    FlyoutIcon="moon.png">
+    
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="100" Background="DarkSLateBlue">
+            <Image Source="moon.png" />
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <!-- Este es un ítem de tipo Flyout en Shell que mostrará un menú desplegable -->
+    <FlyoutItem Title="Moon Phase" Icon="moon.png">
+        <!-- ShellContent define el contenido de la pantalla cuando se hace clic en este ítem del Flyout -->
+        <!-- Usamos DataTemplate para definir la apariencia del contenido. En este caso, es la página MoonPhasePage -->
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+    </FlyoutItem>
+    
+    <!-- Este es un ítem de tipo Flyout en Shell que mostrará un menú desplegable -->
+    <FlyoutItem Title="Sunrise" Icon="sun.png">
+        <!-- ShellContent define el contenido de la pantalla cuando se hace clic en este ítem del Flyout -->
+        <!-- Usamos DataTemplate para definir la apariencia del contenido. En este caso, es la página SunrisePage -->
+        <ShellContent 
+            ContentTemplate="{DataTemplate local:SunrisePage}"/>
+    </FlyoutItem>
+    
+    <!-- Este es un ítem de tipo Flyout en Shell que mostrará un menú desplegable -->
+    <FlyoutItem Title="About" Icon="question.png">
+        <!-- ShellContent define el contenido de la pantalla cuando se hace clic en este ítem del Flyout -->
+        <!-- Usamos DataTemplate para definir la apariencia del contenido. En este caso, es la página AboutPage -->
+        <ShellContent
+            ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    
 
 </Shell>
